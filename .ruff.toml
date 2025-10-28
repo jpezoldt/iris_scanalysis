@@ -1,0 +1,8 @@
+[tool.ruff]
+line-length = 88
+select = ["E", "F", "I", "ANN", "D"]
+ignore = [
+    "D100", "D104", "D105", "D107",
+    "ANN101", "ANN102",
+]
+target-version = "py310"
