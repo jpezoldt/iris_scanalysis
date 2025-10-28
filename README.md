@@ -1,6 +1,6 @@
-# scrnax
+# iscrnax
 
-`scrnax` is a small, structured scRNA-seq analysis toolkit built on top of `scanpy`.
+`iscrnax` is a small, structured scRNA-seq analysis toolkit built on top of `scanpy`.
 
 The goals:
 - Give researchers a **clean starting point** to run QC → filtering → normalization → HVGs → PCA → neighbors/UMAP/leiden.
@@ -10,9 +10,9 @@ The goals:
 ## Typical usage
 
 ```python
-import scrnax as sx
+import iscrnax as isx
 
-adata = sx.io.from_mtx(
+adata = isx.io.from_mtx(
     matrix_path="counts.mtx",
     cell_meta_path="cells.tsv",
     gene_meta_path="genes.tsv",
@@ -21,8 +21,8 @@ adata = sx.io.from_mtx(
     gene_name_col="gene_name",
 )
 
-adata = sx.qc.compute_qc_metrics(adata)
-adata_filt = sx.qc.filter_cells(
+adata = isx.qc.compute_qc_metrics(adata)
+adata_filt = isx.qc.filter_cells(
     adata,
     min_counts=500,
     max_counts=50000,
@@ -30,17 +30,17 @@ adata_filt = sx.qc.filter_cells(
     min_genes=200,
 )
 
-adata_filt = sx.pp.normalize_and_log1p(adata_filt, target_sum=1e4)
-adata_filt = sx.pp.find_hvgs(adata_filt, n_top_genes=2000)
-adata_filt = sx.pp.scale_and_pca(adata_filt, n_comps=50)
+adata_filt = isx.pp.normalize_and_log1p(adata_filt, target_sum=1e4)
+adata_filt = isx.pp.find_hvgs(adata_filt, n_top_genes=2000)
+adata_filt = isx.pp.scale_and_pca(adata_filt, n_comps=50)
 
-adata_filt = sx.tl.neighbors_umap_leiden(
+adata_filt = isx.tl.neighbors_umap_leiden(
     adata_filt,
     n_neighbors=15,
     resolution=1.0,
 )
 
-fig = sx.vis.embedding_scatter(adata_filt, basis="umap", color="leiden")
+fig = isx.vis.embedding_scatter(adata_filt, basis="umap", color="leiden")
 fig.show()
 ```
 
