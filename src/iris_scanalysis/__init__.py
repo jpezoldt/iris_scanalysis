@@ -1,5 +1,5 @@
 """
-scrnax: opinionated scRNA-seq preprocessing, QC, and clustering.
+iris_scanalysis: opinionated scRNA-seq preprocessing, QC, and clustering.
 """
 
 from . import io, qc, pp, tl, vis  # re-export modules

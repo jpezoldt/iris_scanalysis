@@ -58,3 +58,18 @@ in `adata.uns["pipeline_log"]`.
 2. Every function that modifies `adata` must update `pipeline_log`.
 3. Add tests in `tests/` for any new logic.
 4. `io` is read-only and never overwrites user data.
+
+## Get started
+1. Clone repo: https://github.com/jpezoldt/iris_scanalysis
+2. Setup virtual env in /home: `python3 -m venv .venv`
+3. Start virtual env: `source /xx/.venv/bin/activate`
+	Qick add bashrc: 
+		`cd /home/pezoldt/software/github/iris_scanalysis`
+		`activate_iris() {
+source /home/pezoldt/software/github/.venvs/iris_scanalysis/bin/activate
+}`
+		`activate_iris`
+4. Install required packages: `pip install -r requirements.txt`
+5. Reflection of installation in import package: `pip install -e .[dev]`
+6. One line checklist for env: # Setup (Python =3.10): create & activate venv, upgrade pip, install package in editable mode
+python3.11 -m venv ~/.venvs/iris_scanalysis && source ~/.venvs/iris_scanalysis/bin/activate && python -m pip install --upgrade pip setuptools wheel && cd /home/pezoldt/software/github/iris_scanalysis && pip install -e ".[dev]"

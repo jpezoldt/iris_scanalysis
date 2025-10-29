@@ -3,14 +3,14 @@ requires = ["setuptools>=68", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "scrnax"
+name = "iris_scanalysis"
 version = "0.0.1"
 description = "Lightweight, opinionated scRNA-seq analysis workflow built on scanpy"
 readme = "README.md"
 authors = [
-    {name = "YOUR_NAME_HERE", email = "YOUR_EMAIL_HERE"}
+    {name = "Joern Pezoldt", email = "jorn.pezoldt@gmail.com"}
 ]
-license = {text = "MIT"}
+license = {text = "IRIS"}
 requires-python = ">=3.10"
 
 dependencies = [
